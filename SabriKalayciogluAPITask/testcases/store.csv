@@ -1,0 +1,54 @@
+TestCaseID,Type,Description,ExpectedHTTPResponseStatusCode,Request Payload
+TC_POST_store_01,Positive,Create order with valid JSON payload,200,"{
+  ""id"": 0,
+  ""petId"": 0,
+  ""quantity"": 0,
+  ""shipDate"": ""2025-02-03T19:45:05.865Z"",
+  ""status"": ""placed"",
+  ""complete"": true
+}"
+TC_POST_store_02,Positive,Create order with valid JSON payload having no id field,200,"{
+  ""petId"": 0,
+  ""quantity"": 0,
+  ""shipDate"": ""2025-02-03T19:45:05.865Z"",
+  ""status"": ""placed"",
+  ""complete"": true
+}"
+TC_POST_store_03,Negative,Create order with payload having invalid id,500,"{
+  ""id"": ""invalidId"",
+  ""petId"": 0,
+  ""quantity"": 0,
+  ""shipDate"": ""2025-02-03T19:45:05.865Z"",
+  ""status"": ""placed"",
+  ""complete"": true
+}"
+TC_POST_store_04,Negative,Create order with payload having invalid quantity,500,"{
+  ""id"": 0,
+  ""petId"": 0,
+  ""quantity"": ""invalidQuantity"",
+  ""shipDate"": ""2025-02-03T19:45:05.865Z"",
+  ""status"": ""placed"",
+  ""complete"": true
+}"
+TC_POST_store_05,Negative,Create order with payload having invalid shipDate,405,"{
+  ""id"": 0,
+  ""petId"": 0,
+  ""quantity"": 0,
+  ""shipDate"": ""2025-99-99T19:45:05.865Z"",
+  ""status"": ""placed"",
+  ""complete"": true
+}"
+TC_POST_store_06,Negative,Create order with payload having invalid status,405,"{
+  ""id"": 0,
+  ""petId"": 0,
+  ""quantity"": 0,
+  ""shipDate"": ""2025-02-03T19:45:05.865Z"",
+  ""status"": ""invalidStatus"",
+  ""complete"": true
+}"
+TC_POST_store_07,Negative,Create order with no payload,400,
+TC_GET_store_01,Positive,Retrieve order with existing id,200,
+TC_GET_store_02,Negative,Retrieve order with non-existing id,404,
+TC_GET_store_03,Positive,Retrieve store inventory,200,
+TC_DELETE_store_01,Positive,Delete order with existing id,200,
+TC_DELETE_store_02,Negative,Delete order with non-existing id,404,

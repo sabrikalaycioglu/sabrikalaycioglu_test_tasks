@@ -1,0 +1,203 @@
+TestCaseID,Type,Description,ExpectedHTTPResponseStatusCode,Request Payload
+TC_POST_pet_01,Positive,Create pet with valid JSON payload,200,"{
+  ""id"": 0,
+  ""category"": {
+    ""id"": 0,
+    ""name"": ""string""
+  },
+  ""name"": ""doggie"",
+  ""photoUrls"": [
+    ""string""
+  ],
+  ""tags"": [
+    {
+      ""id"": 0,
+      ""name"": ""string""
+    }
+  ],
+  ""status"": ""available""
+}"
+TC_POST_pet_02,Positive,Create pet with valid JSON payload having no id field,200,"{
+  ""category"": {
+    ""id"": 0,
+    ""name"": ""string""
+  },
+  ""name"": ""doggie"",
+  ""photoUrls"": [
+    ""string""
+  ],
+  ""tags"": [
+    {
+      ""id"": 0,
+      ""name"": ""string""
+    }
+  ],
+  ""status"": ""available""
+}"
+TC_POST_pet_03,Negative,Create pet with payload missing mandatory field [name],405,"{
+  ""id"": 0,
+  ""category"": {
+    ""id"": 0,
+    ""name"": ""string""
+  },
+  ""photoUrls"": [
+    ""string""
+  ],
+  ""tags"": [
+    {
+      ""id"": 0,
+      ""name"": ""string""
+    }
+  ],
+  ""status"": ""available""
+}"
+TC_POST_pet_04,Negative,Create pet with payload missing mandatory field [photoUrls],405,"{
+  ""id"": 0,
+  ""category"": {
+    ""id"": 0,
+    ""name"": ""string""
+  },
+  ""name"": ""doggie"",
+  ""tags"": [
+    {
+      ""id"": 0,
+      ""name"": ""string""
+    }
+  ],
+  ""status"": ""available""
+}"
+TC_POST_pet_05,Negative,Create pet with payload having invalid id,500,"{
+  ""id"": ""invalidId"",
+  ""category"": {
+    ""id"": 0,
+    ""name"": ""string""
+  },
+  ""name"": ""doggie"",
+  ""photoUrls"": [
+    ""string""
+  ],
+  ""tags"": [
+    {
+      ""id"": 0,
+      ""name"": ""string""
+    }
+  ],
+  ""status"": ""available""
+}"
+TC_POST_pet_06,Negative,Create pet with payload having invalid status,405,"{
+  ""id"": 0,
+  ""category"": {
+    ""id"": 0,
+    ""name"": ""string""
+  },
+  ""name"": ""doggie"",
+  ""photoUrls"": [
+    ""string""
+  ],
+  ""tags"": [
+    {
+      ""id"": 0,
+      ""name"": ""string""
+    }
+  ],
+  ""status"": ""invalidStatus""
+}"
+TC_POST_pet_07,Negative,Create pet with no payload,405,
+TC_POST_pet_08,Positive,Update pet name and status with formdata,200,
+TC_POST_pet_09,Negative,Update pet name and status with formdata using non-existing pet id,404,
+TC_POST_pet_10,Negative,Update pet status with formdata using invalid status,405,
+TC_POST_pet_11,Positive,Upload pet image with formdata,200,
+TC_POST_pet_12,Negative,Update pet image with formdata using non-existing pet id,404,
+TC_PUT_pet_01,Positive,Update an existing pet with valid JSON payload,200,"{
+  ""id"": 0,
+  ""category"": {
+    ""id"": 0,
+    ""name"": ""string""
+  },
+  ""name"": ""doggie"",
+  ""photoUrls"": [
+    ""string""
+  ],
+  ""tags"": [
+    {
+      ""id"": 0,
+      ""name"": ""string""
+    }
+  ],
+  ""status"": ""available""
+}"
+TC_PUT_pet_02,Positive,Create pet by providing non-existing id to in update request payload,200,"{
+  ""id"": 0,
+  ""category"": {
+    ""id"": 0,
+    ""name"": ""string""
+  },
+  ""name"": ""doggie"",
+  ""photoUrls"": [
+    ""string""
+  ],
+  ""tags"": [
+    {
+      ""id"": 0,
+      ""name"": ""string""
+    }
+  ],
+  ""status"": ""available""
+}"
+TC_PUT_pet_03,Negative,Update pet with payload missing mandatory field [name],405,"{
+  ""id"": 0,
+  ""category"": {
+    ""id"": 0,
+    ""name"": ""string""
+  },
+  ""photoUrls"": [
+    ""string""
+  ],
+  ""tags"": [
+    {
+      ""id"": 0,
+      ""name"": ""string""
+    }
+  ],
+  ""status"": ""available""
+}"
+TC_PUT_pet_04,Negative,Update pet with payload missing mandatory field [photoUrls],405,"{
+  ""id"": 0,
+  ""category"": {
+    ""id"": 0,
+    ""name"": ""string""
+  },
+  ""name"": ""doggie"",
+  ""tags"": [
+    {
+      ""id"": 0,
+      ""name"": ""string""
+    }
+  ],
+  ""status"": ""available""
+}"
+TC_PUT_pet_05,Negative,Update pet with payload having invalid status,405,"{
+  ""id"": 0,
+  ""category"": {
+    ""id"": 0,
+    ""name"": ""string""
+  },
+  ""name"": ""doggie"",
+  ""photoUrls"": [
+    ""string""
+  ],
+  ""tags"": [
+    {
+      ""id"": 0,
+      ""name"": ""string""
+    }
+  ],
+  ""status"": ""invalidStatus""
+}"
+TC_PUT_pet_06,Negative,Update pet with no payload,405,
+TC_GET_pet_01,Positive,Retrieve pet with existing id,200,
+TC_GET_pet_02,Negative,Retrieve pet with non-existing id,404,
+TC_GET_pet_03,Positive,Retrieve pets filtered by valid  status,200,
+TC_GET_pet_04,Positive,Retrieve pets filtered by invalid status,200,
+TC_DELETE_pet_01,Positive,Delete pet with existing id,200,
+TC_DELETE_pet_02,Negative,Delete pet with non-existing id,404,

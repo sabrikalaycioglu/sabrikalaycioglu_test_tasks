@@ -1,0 +1,160 @@
+TestCaseID,Type,Description,ExpectedHTTPResponseStatusCode,Request Payload
+TC_POST_user_01,Positive,Create user with valid JSON payload,200,"{
+  ""id"": 0,
+  ""username"": ""string"",
+  ""firstName"": ""string"",
+  ""lastName"": ""string"",
+  ""email"": ""string"",
+  ""password"": ""string"",
+  ""phone"": ""string"",
+  ""userStatus"": 0
+}"
+TC_POST_user_02,Positive,Create user with valid JSON payload having no id field,200,"{
+  ""username"": ""string"",
+  ""firstName"": ""string"",
+  ""lastName"": ""string"",
+  ""email"": ""string"",
+  ""password"": ""string"",
+  ""phone"": ""string"",
+  ""userStatus"": 0
+}"
+TC_POST_user_03,Negative,Create user with payload having invalid id,500,"{
+  ""id"": ""invalidId"",
+  ""username"": ""string"",
+  ""firstName"": ""string"",
+  ""lastName"": ""string"",
+  ""email"": ""string"",
+  ""password"": ""string"",
+  ""phone"": ""string"",
+  ""userStatus"": 0
+}"
+TC_POST_user_04,Negative,Create user with payload having invalid status,500,"{
+  ""id"": 0,
+  ""username"": ""string"",
+  ""firstName"": ""string"",
+  ""lastName"": ""string"",
+  ""email"": ""string"",
+  ""password"": ""string"",
+  ""phone"": ""string"",
+  ""userStatus"": ""invalidStatus""
+}"
+TC_POST_user_05,Negative,Create user with no payload,405,
+TC_POST_user_06,Positive,Create user [createWithArray] with valid JSON payload,200,"[
+  {
+    ""id"": 0,
+    ""username"": ""string"",
+    ""firstName"": ""string"",
+    ""lastName"": ""string"",
+    ""email"": ""string"",
+    ""password"": ""string"",
+    ""phone"": ""string"",
+    ""userStatus"": 0
+  }
+]"
+TC_POST_user_07,Positive,Create list of users [createWithArray] with valid JSON payloads,200,"[
+  {
+    ""id"": 0,
+    ""username"": ""string"",
+    ""firstName"": ""string"",
+    ""lastName"": ""string"",
+    ""email"": ""string"",
+    ""password"": ""string"",
+    ""phone"": ""string"",
+    ""userStatus"": 0
+  },
+  {
+    ""id"": 0,
+    ""username"": ""string"",
+    ""firstName"": ""string"",
+    ""lastName"": ""string"",
+    ""email"": ""string"",
+    ""password"": ""string"",
+    ""phone"": ""string"",
+    ""userStatus"": 0
+  }]"
+TC_POST_user_08,Negative,Create user [createWithArray]  with no payload,405,
+TC_POST_user_09,Positive,Create user [createWithList] with valid JSON payload,200,"[
+  {
+    ""id"": 0,
+    ""username"": ""string"",
+    ""firstName"": ""string"",
+    ""lastName"": ""string"",
+    ""email"": ""string"",
+    ""password"": ""string"",
+    ""phone"": ""string"",
+    ""userStatus"": 0
+  }
+]"
+TC_POST_user_10,Positive,Create list of users [createWithList] with valid JSON payloads,200,"[
+  {
+    ""id"": 0,
+    ""username"": ""string"",
+    ""firstName"": ""string"",
+    ""lastName"": ""string"",
+    ""email"": ""string"",
+    ""password"": ""string"",
+    ""phone"": ""string"",
+    ""userStatus"": 0
+  },
+  {
+    ""id"": 0,
+    ""username"": ""string"",
+    ""firstName"": ""string"",
+    ""lastName"": ""string"",
+    ""email"": ""string"",
+    ""password"": ""string"",
+    ""phone"": ""string"",
+    ""userStatus"": 0
+  }]"
+TC_POST_user_11,Negative,Create user [createWithList] with no payload,405,
+TC_PUT_user_01,Positive,Update an existing user with valid JSON payload,200,"{
+  ""id"": 0,
+  ""username"": ""string"",
+  ""firstName"": ""string"",
+  ""lastName"": ""string"",
+  ""email"": ""string"",
+  ""password"": ""string"",
+  ""phone"": ""string"",
+  ""userStatus"": 0
+}"
+TC_PUT_user_02,Positive,Create user by providing non-existing username to in update request payload,200,"{
+  ""id"": 0,
+  ""username"": ""string"",
+  ""firstName"": ""string"",
+  ""lastName"": ""string"",
+  ""email"": ""string"",
+  ""password"": ""string"",
+  ""phone"": ""string"",
+  ""userStatus"": 0
+}"
+TC_PUT_user_03,Negative,Update user with payload having invalid id,500,"{
+  ""id"": ""invalidId"",
+  ""username"": ""string"",
+  ""firstName"": ""string"",
+  ""lastName"": ""string"",
+  ""email"": ""string"",
+  ""password"": ""string"",
+  ""phone"": ""string"",
+  ""userStatus"": 0
+}"
+TC_PUT_user_04,Negative,Update user with payload having invalid status,500,"{
+  ""id"": 0,
+  ""username"": ""string"",
+  ""firstName"": ""string"",
+  ""lastName"": ""string"",
+  ""email"": ""string"",
+  ""password"": ""string"",
+  ""phone"": ""string"",
+  ""userStatus"": ""invalidStatus""
+}"
+TC_PUT_user_05,Negative,Update user with no payload,405,
+TC_GET_user_01,Positive,Retrieve user with existing username,200,
+TC_GET_user_02,Negative,Retrieve user with non-existing username,404,
+TC_GET_user_03,Positive,Login  user with valid username and password,200,
+TC_GET_user_04,Negative,Login  user with non-existing username,404,
+TC_GET_user_05,Negative,Login  user with wrong password,405,
+TC_GET_user_06,Negative,Login  user with missing username,405,
+TC_GET_user_07,Negative,Login  user with missing  password,405,
+TC_GET_user_08,Positive,Logout user,200,
+TC_DELETE_user_01,Positive,Delete user with existing username,200,
+TC_DELETE_user_02,Negative,Delete user with non-existing username,404,

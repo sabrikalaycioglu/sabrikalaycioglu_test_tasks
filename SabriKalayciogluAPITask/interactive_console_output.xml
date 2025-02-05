@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.7.5 on win32)" generated="20250204 14:30:07.924" rpa="false" schemaversion="3">
+<suite id="s1" name="Robot Interactive Console" source="c:\Users\kalaycioglus\.vscode\extensions\robocorp.robotframework-lsp-1.13.0\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test" line="5">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<kw name="Test Setup">
+<var>${CASEDATA}</var>
+<msg timestamp="20250204 14:30:08.314" level="FAIL">No keyword with name 'Test Setup' found.</msg>
+<status status="FAIL" starttime="20250204 14:30:08.314" endtime="20250204 14:30:08.314"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${REQUEST_PAYLOAD}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20250204 14:30:08.315" endtime="20250204 14:30:08.315"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${RESPONSE_PAYLOAD}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20250204 14:30:08.315" endtime="20250204 14:30:08.315"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${RESPONSE_STATUS}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20250204 14:30:08.315" endtime="20250204 14:30:08.315"/>
+</kw>
+<kw name="Convert String to JSON">
+<var>${REQUEST_PAYLOAD}</var>
+<arg>${CASEDATA["Request Payload"]}</arg>
+<status status="NOT RUN" starttime="20250204 14:30:08.317" endtime="20250204 14:30:08.317"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${USERNAME}</var>
+<arg>${USER_01_USERNAME}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20250204 14:30:08.317" endtime="20250204 14:30:08.318"/>
+</kw>
+<kw name="Update value to JSON">
+<arg>${REQUEST_PAYLOAD}</arg>
+<arg>$.username</arg>
+<arg>${USERNAME}</arg>
+<status status="NOT RUN" starttime="20250204 14:30:08.319" endtime="20250204 14:30:08.319"/>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${REQUEST_HEADERS}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" starttime="20250204 14:30:08.319" endtime="20250204 14:30:08.319"/>
+</kw>
+<kw name="Add To Headers">
+<var>${REQUEST_HEADERS}</var>
+<arg>${REQUEST_HEADERS}</arg>
+<arg>Accept</arg>
+<arg>application/json</arg>
+<status status="NOT RUN" starttime="20250204 14:30:08.321" endtime="20250204 14:30:08.321"/>
+</kw>
+<kw name="Add To Headers">
+<var>${REQUEST_HEADERS}</var>
+<arg>${REQUEST_HEADERS}</arg>
+<arg>Content-Type</arg>
+<arg>application/json</arg>
+<status status="NOT RUN" starttime="20250204 14:30:08.323" endtime="20250204 14:30:08.323"/>
+</kw>
+<kw name="Put">
+<var>${RESPONSE}</var>
+<arg>${BASE_URL}/${RESOURCE}/${USERNAME}</arg>
+<arg>body=${REQUEST_PAYLOAD}</arg>
+<arg>validate=True</arg>
+<arg>headers=${REQUEST_HEADERS}</arg>
+<status status="NOT RUN" starttime="20250204 14:30:08.325" endtime="20250204 14:30:08.325"/>
+</kw>
+<kw name="Get value from JSON">
+<var>${RESPONSE_PAYLOAD}</var>
+<arg>${RESPONSE}</arg>
+<arg>$.body</arg>
+<status status="NOT RUN" starttime="20250204 14:30:08.326" endtime="20250204 14:30:08.326"/>
+</kw>
+<kw name="Get value from Json">
+<var>${RESPONSE_STATUS}</var>
+<arg>${RESPONSE}</arg>
+<arg>$.status</arg>
+<status status="NOT RUN" starttime="20250204 14:30:08.328" endtime="20250204 14:30:08.328"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>"${CASEDATA["ExpectedHTTPResponseStatusCode"]}"</arg>
+<arg>"${RESPONSE_STATUS}"</arg>
+<arg>\nERROR: Status Code is missing or incorrect</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" starttime="20250204 14:30:08.328" endtime="20250204 14:30:08.329"/>
+</kw>
+<status status="PASS" starttime="20250204 14:30:07.959" endtime="20250204 14:30:09.400"/>
+</kw>
+<status status="PASS" starttime="20250204 14:30:07.959" endtime="20250204 14:30:09.400"/>
+</test>
+<status status="PASS" starttime="20250204 14:30:07.926" endtime="20250204 14:30:09.401"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Interactive Console">Robot Interactive Console</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
